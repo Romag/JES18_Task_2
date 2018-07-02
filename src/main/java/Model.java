@@ -16,4 +16,24 @@ public class Model {
 		NUMBER_TO_GUESS = rand.nextInt(101);
 	}
 
+	/**
+	 * Receives a guess from a controller and returns answers whether it is larger or smaller than required number
+	 * 
+	 * @param guess
+	 * @return -1 or 1 if required result is smaller or larger
+	 */
+	public int getProposal(int guess) {
+		
+		
+		return -32;
+	}
+	
+	public boolean numberWithinBounds(int number) {
+		return currentLowerBound <= number && 
+				number <= currentUpperBound;
+	}
+	
+	public String showRange() {
+		return currentLowerBound + ", " + currentUpperBound; 
+	}
 }
