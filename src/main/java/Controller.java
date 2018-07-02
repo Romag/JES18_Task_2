@@ -18,4 +18,8 @@ public class Controller {
 		
 	}
 
+	private void getMessageFromUser(Scanner scan) {
+		String line;
+		
+	}
 }

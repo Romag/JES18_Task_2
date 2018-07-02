@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Model {
@@ -10,17 +12,20 @@ public class Model {
 	private int currentLowerBound = LOWER_BOUND;
 	private int currentUpperBound = UPPER_BOUND;
 	
+	private List<Integer> guessLog = new ArrayList<>();
 	
 	public Model() {
 		Random rand = new Random();
 		NUMBER_TO_GUESS = rand.nextInt(101);
+		
 	}
 
 	/**
-	 * Receives a guess from a controller and returns answers whether it is larger or smaller than required number
+	 * Receives a guess from a controller and returns answers whether it is larger or smaller than required number.
+	 * if guess is correct - return 0.
 	 * 
 	 * @param guess
-	 * @return -1 or 1 if required result is smaller or larger
+	 * @return -1, 0, 1 if required result is smaller, equal or larger
 	 */
 	public int getProposal(int guess) {
 		
