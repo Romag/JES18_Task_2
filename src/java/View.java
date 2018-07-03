@@ -1,4 +1,4 @@
-package main.java;
+package java;
 
 public class View {
 	public static final String INITIAL_MESSAGE = "Number is guessed by program.";
