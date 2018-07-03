@@ -29,6 +29,7 @@ public class Model {
 	 */
 	public boolean getProposal(int guess) {
 		logGuessTry(guess);
+		System.out.println("\nprevious guesses: " + guessLog());
 		if(guess == NUMBER_TO_GUESS) return true;
 		updateBoundries(guess);
 		
@@ -56,7 +57,7 @@ public class Model {
 		guessLog.add(guess);
 	}
 	
-	public String printGuessLog() {
+	public String guessLog() {
 		return guessLog.toString();
 	}
 }
