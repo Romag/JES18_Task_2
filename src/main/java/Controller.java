@@ -12,14 +12,36 @@ public class Controller {
 	}
 	
 	public void engageUser() {
-		view.printInitialMessage(model.showRange());
+		view.printInitialMessage();
 		
 		Scanner scan = new Scanner(System.in);
 		
+		boolean correctGuess = false;
+		while(!correctGuess) {
+			view.printRange(model.showRange());
+			System.out.println(View.ENTER_YOUR_GUESS);
+			correctGuess = getGuessFromUser(scan);
+		}
+		
 	}
 
-	private void getMessageFromUser(Scanner scan) {
-		String line;
+	private boolean getGuessFromUser(Scanner scan) {
+		if(!scan.hasNextInt()) {
+			view.printMessage(View.INVALID_INPUT);
+			scan.next();
+			return false;
+		}
 		
+		int guess = scan.nextInt();
+		if(!model.numberWithinBounds(guess)) {
+			view.printMessage(View.GUESS_OUT_OF_RANGE);
+			return false;
+		}
+		
+		boolean result = model.getProposal(guess);
+		if(!result) view.printMessage(View.INCORRECT_GUESS); 
+		if(result) view.printMessage(View.CORRECT_GUESS);
+		
+		return result;
 	}
 }

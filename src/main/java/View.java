@@ -11,10 +11,14 @@ public class View {
 	
 	public static final String GUESS_OUT_OF_RANGE = "Your guess is out of range. Please try again.";
 	
-	public static final String INCORRECT_GUESS = "";
+	public static final String INCORRECT_GUESS = "Guess is not correct. Please try again.";
 	
-	public static final String CORRECT_GUESS = "Congratulations. You have guessed correctly.";
+	public static final String CORRECT_GUESS = "Congratulations. You have guessed correctly!";
 	
+	
+	public void printMessage(String s) {
+		System.out.println(s);
+	}
 	
 	public void printNumber(int n) {
 		System.out.println(n);
@@ -25,10 +29,8 @@ public class View {
 		printNumber(n);
 	}
 	
-	public void printInitialMessage(String range) {
+	public void printInitialMessage() {
 		System.out.println(INITIAL_MESSAGE);
-		printRange(range);
-		System.out.println(ENTER_YOUR_GUESS);
 	}
 	
 	public void printRange(String range) {

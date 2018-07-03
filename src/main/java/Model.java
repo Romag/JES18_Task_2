@@ -27,10 +27,20 @@ public class Model {
 	 * @param guess
 	 * @return -1, 0, 1 if required result is smaller, equal or larger
 	 */
-	public int getProposal(int guess) {
+	public boolean getProposal(int guess) {
+		logGuessTry(guess);
+		if(guess == NUMBER_TO_GUESS) return true;
+		updateBoundries(guess);
 		
-		
-		return -32;
+		return false;
+	}
+	
+	private void updateBoundries(int guess) {
+		if(guess > NUMBER_TO_GUESS) {
+			currentUpperBound = guess-1;
+		} else if(guess < NUMBER_TO_GUESS){
+			currentLowerBound = guess+1;
+		}
 	}
 	
 	public boolean numberWithinBounds(int number) {
@@ -40,5 +50,13 @@ public class Model {
 	
 	public String showRange() {
 		return currentLowerBound + ", " + currentUpperBound; 
+	}
+	
+	private void logGuessTry(int guess) {
+		guessLog.add(guess);
+	}
+	
+	public String printGuessLog() {
+		return guessLog.toString();
 	}
 }
