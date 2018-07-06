@@ -1,4 +1,4 @@
-package test;
+package ua.training.test;
 
 import static org.junit.Assert.*;
 
